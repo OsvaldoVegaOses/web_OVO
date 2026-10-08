@@ -1,0 +1,19 @@
+# Sistema Operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+
+# Backups temporales locales
+*.pre-seo
+*.bak
+*.tmp
+
+# Capturas de pantalla temporales de QA local
+scratch/final-qa/

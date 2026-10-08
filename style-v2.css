@@ -1,0 +1,106 @@
+/* ============================================================
+   STYLE-V2.CSS — REGLAS EXCLUSIVAS Y RESPONSIVE PARA V2
+   Sitio Profesional Osvaldo Vega Oses — Arquitectura V1/V2
+   Principio: Aplicar exclusivamente a V2 sin afectar V1
+   ============================================================ */
+
+/* --- 1. Mapa de Experiencia --- */
+@media (max-width: 640px) {
+    .index-editorial .experience-map {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+        padding: 1rem !important;
+    }
+    .index-editorial .project-pill {
+        white-space: normal !important;
+        word-break: break-word !important;
+    }
+}
+
+/* --- 2. Proyectos Destacados (3 cols escritorio, 2 balanceadas tablet, 1 móvil) --- */
+@media (max-width: 992px) {
+    .index-editorial .featured-projects {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 1.25rem !important;
+    }
+    .index-editorial .featured-projects .featured-card:last-child {
+        grid-column: 1 / -1 !important;
+        max-width: 580px !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .index-editorial .featured-projects {
+        grid-template-columns: 1fr !important;
+        gap: 1.25rem !important;
+    }
+    .index-editorial .featured-projects .featured-card:last-child {
+        grid-column: auto !important;
+        max-width: none !important;
+        margin: 0 !important;
+        width: auto !important;
+    }
+}
+
+/* --- 3. Casos Publicados Secundarios (Horizontal en escritorio, vertical en tablet/móvil) --- */
+@media (max-width: 768px) {
+    .index-editorial .published-project-row {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+        padding: 1.1rem !important;
+    }
+    .index-editorial .published-project-media {
+        height: 180px !important;
+        width: 100% !important;
+    }
+    .index-editorial .published-project-link {
+        align-self: flex-start !important;
+        margin-top: 0.25rem !important;
+    }
+}
+
+@media (max-width: 390px) {
+    .index-editorial .published-project-row {
+        padding: 0.85rem !important;
+    }
+    .index-editorial .published-project-media {
+        height: 140px !important;
+    }
+}
+
+/* --- 4. Trabajo Actual (3 cols escritorio, 2 balanceadas tablet, 1 móvil) --- */
+@media (max-width: 992px) {
+    .index-editorial .current-project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 1rem !important;
+    }
+    .index-editorial .current-project-grid .current-project-card:last-child {
+        grid-column: 1 / -1 !important;
+        max-width: 580px !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .index-editorial .current-project-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+    .index-editorial .current-project-grid .current-project-card:last-child {
+        grid-column: auto !important;
+        max-width: none !important;
+        margin: 0 !important;
+        width: auto !important;
+    }
+}
+
+/* --- 5. Contenedores y márgenes seguros para pantallas estrechas (390px / 320px) --- */
+@media (max-width: 480px) {
+    .index-editorial .container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+}
