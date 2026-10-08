@@ -1,73 +1,95 @@
-﻿from pathlib import Path
+#!/usr/bin/env python3
+"""Suite de verificación de tracking estático para osvaldovega.cl — V1 y V2.
+
+Verifica la presencia e integridad de Google Tag Manager (GTM-NN64BQC5)
+y Microsoft Clarity (ypzia0e866) en las 14 páginas del portafolio.
+"""
+
+from pathlib import Path
 import re
+import sys
 
-root = Path(r"C:\Users\osval\OneDrive - ONG Tren Ciudadano\digital skills\web_OVO")
+ROOT = Path(__file__).resolve().parent
 
-pages = [
-    root / "index.html",
-    root / "proyectos" / "pac-arenillas-negras.html",
-    root / "proyectos" / "medio-humano-horcon.html",
-    root / "proyectos" / "plan-maestro-san-felipe.html",
-    root / "proyectos" / "deslindes-rios-valparaiso.html",
-    root / "proyectos" / "pac-la-florida.html",
-    root / "proyectos" / "medio-humano-desaladora-arica.html",
+PAGES = [
+    # V1 (Oficial)
+    "index.html",
+    "proyectos/pac-arenillas-negras.html",
+    "proyectos/medio-humano-horcon.html",
+    "proyectos/plan-maestro-san-felipe.html",
+    "proyectos/deslindes-rios-valparaiso.html",
+    "proyectos/pac-la-florida.html",
+    "proyectos/medio-humano-desaladora-arica.html",
+    # V2 (Experimental)
+    "index2.html",
+    "proyectos/pac-arenillas-negras-v2.html",
+    "proyectos/medio-humano-horcon-v2.html",
+    "proyectos/plan-maestro-san-felipe-v2.html",
+    "proyectos/deslindes-rios-valparaiso-v2.html",
+    "proyectos/pac-la-florida-v2.html",
+    "proyectos/medio-humano-desaladora-arica-v2.html",
 ]
 
-errors = []
+GTM_ID = "GTM-NN64BQC5"
+CLARITY_ID = "ypzia0e866"
 
-for path in pages:
+def main():
+    errors = []
+    print("=" * 80)
+    print("VERIFICACION DE TRACKING ESTATICO (GTM & CLARITY) — 14 PAGINAS")
+    print(f"Raíz del repositorio: {ROOT}")
+    print("=" * 80)
 
-    text = path.read_text(encoding="utf-8")
+    for rel in PAGES:
+        path = ROOT / rel
+        if not path.exists():
+            errors.append(f"{rel}: Archivo no encontrado")
+            continue
 
-    gtm_head = len(re.findall(
-        r'GTM-NN64BQC5',
-        text,
-        re.I
-    ))
+        text = path.read_text(encoding="utf-8")
 
-    clarity = len(re.findall(
-        r'ypzia0e866',
-        text,
-        re.I
-    ))
+        gtm_head_matches = len(re.findall(re.escape(GTM_ID), text, re.I))
+        clarity_matches = len(re.findall(re.escape(CLARITY_ID), text, re.I))
+        gtm_noscript_matches = len(re.findall(
+            r'googletagmanager\.com/ns\.html\?id=' + re.escape(GTM_ID),
+            text,
+            re.I
+        ))
 
-    gtm_noscript = len(re.findall(
-        r'googletagmanager\.com/ns\.html\?id=GTM-NN64BQC5',
-        text,
-        re.I
-    ))
+        # GTM ID debe aparecer:
+        # 1 vez en script head
+        # 1 vez en noscript body
+        gtm_ok = (gtm_head_matches == 2)
+        clarity_ok = (clarity_matches == 1)
+        noscript_ok = (gtm_noscript_matches == 1)
 
-    # GTM ID debe aparecer:
-    # 1 vez en script head
-    # 1 vez en noscript
-    gtm_ok = gtm_head == 2
+        status_str = "OK" if (gtm_ok and clarity_ok and noscript_ok) else "ERROR"
+        print(f"\n{rel}: [{status_str}]")
+        print(f"  GTM referencias: {gtm_head_matches} (esperado 2: script + noscript)")
+        print(f"  Clarity:         {clarity_matches} (esperado 1)")
+        print(f"  GTM noscript:    {gtm_noscript_matches} (esperado 1)")
 
-    clarity_ok = clarity == 1
-    noscript_ok = gtm_noscript == 1
+        if not gtm_ok:
+            errors.append(f"{rel}: GTM referencias incorrectas ({gtm_head_matches}, esperado 2)")
+        if not clarity_ok:
+            errors.append(f"{rel}: Clarity referencias incorrectas ({clarity_matches}, esperado 1)")
+        if not noscript_ok:
+            errors.append(f"{rel}: GTM noscript incorrecto ({gtm_noscript_matches}, esperado 1)")
 
-    print()
-    print(path.relative_to(root))
-    print("  GTM referencias:", gtm_head, "OK" if gtm_ok else "ERROR")
-    print("  Clarity:", clarity, "OK" if clarity_ok else "ERROR")
-    print("  GTM noscript:", gtm_noscript, "OK" if noscript_ok else "ERROR")
+    print("\n" + "=" * 80)
+    print("RESUMEN TRACKING QA")
+    print(f"Páginas evaluadas: {len(PAGES)}")
+    print(f"Errores encontrados: {len(errors)}")
+    print("=" * 80)
 
-    if not gtm_ok:
-        errors.append(f"{path.name}: GTM referencias={gtm_head}")
+    if errors:
+        for e in errors:
+            print(f" - {e}")
+        print("\nRESULTADO GLOBAL: FAIL")
+        sys.exit(1)
+    else:
+        print("RESULTADO GLOBAL: PASS")
+        sys.exit(0)
 
-    if not clarity_ok:
-        errors.append(f"{path.name}: Clarity={clarity}")
-
-    if not noscript_ok:
-        errors.append(f"{path.name}: GTM noscript={gtm_noscript}")
-
-print()
-print("=" * 70)
-
-if errors:
-    print("ERRORES:", len(errors))
-    for e in errors:
-        print(" -", e)
-    raise SystemExit("TRACKING QA: FAIL")
-
-print("ERRORES: 0")
-print("TRACKING QA: PASS")
+if __name__ == "__main__":
+    main()

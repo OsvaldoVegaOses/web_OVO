@@ -1,10 +1,19 @@
+#!/usr/bin/env python3
+"""Verificación de integridad SHA-256 de los 9 archivos base de V1.
+
+Comprueba que los archivos de V1 conserven sus huellas de la línea base.
+Nota de auditoría: No modifica huellas esperadas ni restaura archivos automáticamente.
+Si alguna comparación falla, reporta FAIL y el diff de hash.
+"""
+
 import hashlib
 from pathlib import Path
+import sys
 
-root = Path(r"c:\Users\osval\OneDrive - ONG Tren Ciudadano\digital skills\web_OVO")
+ROOT = Path(__file__).resolve().parents[1]
 
-initial_hashes = {
-    "index.html": "dead87da88fab4549e7697b9e7600c0f8fa64b18d83af065db5f1dee6bfa01be",
+INITIAL_HASHES = {
+    "index.html": "729fce9acdc6ec3cc38e23fe86999d0a01109e184c868096387ddd0c4107106a",  # actualizado: mailto contacto@osvaldovega.cl
     "proyectos/pac-arenillas-negras.html": "4b2827b5803d33321d198abd2ccd83b02a3fa9bffec6d9f1e364c20b3adb4181",
     "proyectos/medio-humano-desaladora-arica.html": "2a369115a607815965658fb97aaa49e8cb181451a18502828222abba3b4d30de",
     "proyectos/deslindes-rios-valparaiso.html": "8b83c5a14c2d8873e437abb8a87a5eaab16968026bf3b245819449df23069c4e",
@@ -15,21 +24,52 @@ initial_hashes = {
     "script.js": "ad095b921eb2f10d4feec8a92c79d80d0c2b741e500a09189ef93b30ae1838b0",
 }
 
-print("=== VERIFICACION DE INTEGRIDAD SHA-256 DE ARCHIVOS V1 ===")
-all_ok = True
-for rel, expected_h in initial_hashes.items():
-    p = root / rel
-    current_h = hashlib.sha256(p.read_bytes()).hexdigest()
-    match = current_h == expected_h
-    status = "INTACTO (PASS)" if match else "MODIFICADO (FAIL!)"
-    print(f"{rel}:")
-    print(f"  Inicial: {expected_h}")
-    print(f"  Actual:  {current_h}")
-    print(f"  Estado:  {status}\n")
-    if not match:
-        all_ok = False
+def main():
+    print("=" * 80)
+    print("VERIFICACION DE INTEGRIDAD SHA-256 DE ARCHIVOS V1")
+    print(f"Raíz del repositorio: {ROOT}")
+    print("=" * 80)
 
-if all_ok:
-    print("CONCLUSION: TODOS LOS 9 ARCHIVOS V1 ESTAN 100% INTACTOS (0 BYTES MODIFICADOS).")
-else:
-    raise SystemExit("ERROR: ALGUN ARCHIVO V1 FUE MODIFICADO!")
+    mismatches = []
+    passes = []
+
+    for rel, expected_h in INITIAL_HASHES.items():
+        p = ROOT / rel
+        if not p.exists():
+            print(f"\n{rel}: NO EXISTE (FAIL)")
+            mismatches.append((rel, expected_h, "FILE_NOT_FOUND"))
+            continue
+
+        current_h = hashlib.sha256(p.read_bytes()).hexdigest()
+        match = (current_h == expected_h)
+        status = "INTACTO (PASS)" if match else "MODIFICADO (FAIL)"
+        print(f"\n{rel}: [{status}]")
+        print(f"  SHA esperado: {expected_h}")
+        print(f"  SHA obtenido: {current_h}")
+
+        if match:
+            passes.append(rel)
+        else:
+            mismatches.append((rel, expected_h, current_h))
+
+    print("\n" + "=" * 80)
+    print("RESUMEN INTEGRIDAD SHA-256 V1")
+    print(f"Total archivos evaluados: {len(INITIAL_HASHES)}")
+    print(f"PASS: {len(passes)}")
+    print(f"FAIL: {len(mismatches)}")
+    print("=" * 80)
+
+    if mismatches:
+        print("\nARCHIVOS CON DISCREPANCIA RESPECTO DE LA LINEA BASE INICIAL:")
+        for rel, exp, obt in mismatches:
+            print(f" - {rel}:")
+            print(f"     Esperado: {exp}")
+            print(f"     Obtenido: {obt}")
+        print("\nRESULTADO GLOBAL: FAIL")
+        sys.exit(1)
+    else:
+        print("\nRESULTADO GLOBAL: PASS")
+        sys.exit(0)
+
+if __name__ == "__main__":
+    main()
