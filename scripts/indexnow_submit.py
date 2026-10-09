@@ -14,8 +14,9 @@ from urllib.parse import urlparse
 from urllib.request import Request, urlopen
 
 HOST = "osvaldovega.cl"
-KEY = "b828fb822ffc45d8a20DEAEC7DAE54de"
-KEY_LOCATION = "https://osvaldovega.cl/b828fb822ffc45d8a20DEAEC7DAE54de.txt"
+KEY = "732f0597-5a6c-4a18-95ef-b082c952c263"
+KEY_LOCATION = "https://osvaldovega.cl/732f0597-5a6c-4a18-95ef-b082c952c263.txt"
+
 INDEXNOW_URL = "https://api.indexnow.org/IndexNow"
 
 
