@@ -1,170 +1,279 @@
-# Registro de Experimentos Editoriales V1 / V2 — Sitio Profesional OVO
+# Registro de Experimentos Editoriales V1 / V2 - Sitio Profesional OVO
 
-**Proyecto:** Portafolio Profesional de Osvaldo Vega Oses · Sociólogo  
-**Fecha de registro:** 8 de octubre de 2026  
-**Ámbito:** Arquitectura de versiones paralelas y experimentación editorial controlada  
+**Proyecto:** Portafolio Profesional de Osvaldo Vega Oses - Sociologo
+**Fecha de creacion del registro:** 8 de octubre de 2026
+**Ultima actualizacion:** 8 de octubre de 2026 (auditoria tecnica)
+**Ambito:** Arquitectura de versiones paralelas y experimentacion editorial controlada
 
 ---
 
 ## Estado Actual del Sistema
 
-```text
-V1 = REFERENCIA ORIGINAL
+`	ext
+V1                              PRESERVADA
+V2                              PRESERVADA
+HASH HISTORICO index.html       CONSERVADO
+HASH ACTUAL AUTORIZADO          VERIFICADO
+QA PYTHON (4 suites)            EJECUTADO — PASS
+QA NAVEGADOR (35 combinaciones) EJECUTADO — PASS
+DETECCION DE FALLOS             COMPROBADA
+PRODUCCION                      NO VERIFICADO POR HTTP
+COMPARACION V1/V2               NO INICIADA
+DECISION DE PROMOCION           NO TOMADA
+COMMIT                          NO AUTORIZADO
+PUSH                            NO AUTORIZADO
+DEPLOY                          NO AUTORIZADO
+`
 
-V2 = EXPERIMENTO EDITORIAL
+---
 
-PUBLICACIÓN V2 = PENDIENTE DE AUTORIZACIÓN
+## Diferenciacion de niveles de estado
 
-COMPARACIÓN = NO INICIADA
+### Nivel A - Repositorio GitHub (OsvaldoVegaOses/web_OVO)
 
-DECISIÓN DE PROMOCIÓN = NO TOMADA
+Estado confirmado a fecha de auditoria:
+
+- Existe V1 completa (index.html + 6 proyectos + style.css + script.js).
+- Existe V2 completa (index2.html + 6 paginas -v2.html + style-v2.css).
+- Rama principal: main. Ambas versiones presentes.
+- Ultimo commit verificado: 17d6bc0d9eb28c1359ad37d35242d37489385456
+  Mensaje: qa: actualizar scripts de verificacion - suite completa PASS (4/4)
+  Modifico exclusivamente cuatro scripts de QA.
+- Commit anterior: 4a3db796655619d2935a1c47064fb1febf0afc3c
+  Mensaje: feat: arquitectura paralela V1/V2, portafolio profesional y actualizacion de contacto
+
+### Nivel B - Publicacion en osvaldovega.cl
+
+**Estado: NO VERIFICADO**
+
+No se realizaron comprobaciones HTTP directas a las URLs publicas durante esta auditoria.
+No es valido inferir el estado de despliegue a partir del push al repositorio.
+
+Para verificar el estado real se requiere comprobar directamente:
+- https://osvaldovega.cl/ (respuesta HTTP y contenido)
+- https://osvaldovega.cl/index2.html (presencia o 404)
+
+### Nivel C - Comparacion editorial V1/V2
+
+**Estado: NO INICIADA**
+
+No se han comparado formalmente las experiencias de navegacion de visitantes reales.
+La decision de promover V2 a portada oficial permanece: NO TOMADA.
+
+---
+
+## 1. Proposito de V1 y V2
+
+- **V1 (Referencia Original):** Version oficial actual. Estetica tecnica y oscura. Linea base de validacion profesional.
+- **V2 (Experimento Editorial):** Variante alternativa con narrativa editorial clara y humana. Diez bloques funcionales.
+
+Principio: ninggun cambio en V2 modifica visual, funcional o editorialmente a V1.
+
+---
+
+## 2. Archivos de Cada Version
+
+### V1 - Referencia Original
+- Portada: index.html
+- Proyectos: proyectos/pac-arenillas-negras.html, medio-humano-desaladora-arica.html,
+  deslindes-rios-valparaiso.html, pac-la-florida.html, plan-maestro-san-felipe.html,
+  medio-humano-horcon.html
+- Estilos y logica: style.css, script.js
+
+### V2 - Experimento Editorial
+- Portada: index2.html
+- Proyectos: proyectos/*-v2.html (6 archivos)
+- Estilos exclusivos: style-v2.css
+
+### Recursos Compartidos
+- Fotografias: Fotos_proyectos/, assets/
+- Tipografias: Google Fonts + Font Awesome CDN
+- Analitica: GTM-NN64BQC5 + Microsoft Clarity ypzia0e866
+
+---
+
+## 3. Aislamiento de Navegacion
+
+Recorridos 100% aislados:
+  V1: index.html -> proyectos/caso.html -> index.html#seccion
+  V2: index2.html -> proyectos/caso-v2.html -> index2.html#seccion
+
+Verificado mediante scratch/verify_v2_qa.py: 0 errores en 14 paginas.
+
+---
+
+## 4. Tratamiento SEO
+
+| Parametro             | V1 (Referencia)                | V2 (Experimental)              |
+|-----------------------|--------------------------------|--------------------------------|
+| Directiva Robots      | index, follow                  | noindex, follow                |
+| Canonical en Portada  | https://osvaldovega.cl/        | https://osvaldovega.cl/        |
+| Canonical Proyectos   | Auto-referencial V1            | Apunta a equivalente V1        |
+| og:url                | URL oficial V1                 | URL propia V2                  |
+| Sitemap               | Si (7 URLs oficiales)          | No                             |
+| IndexNow              | Si (reservado a V1)            | No                             |
+
+---
+
+## 5. Estado de Publicacion
+
+- Repositorio GitHub: Ambas versiones en rama main. CONFIRMADO.
+- Servidor osvaldovega.cl: NO VERIFICADO (sin comprobacion HTTP en esta auditoria).
+- Autorizacion de publicacion de V2: Pendiente de revision por Osvaldo Vega.
+
+---
+
+## 6. Criterios para Eventual Promocion de V2
+
+V2 sustituira a V1 solo si se cumplen copulativamente:
+1. Validacion editorial por Osvaldo Vega.
+2. Confirmacion de comportamiento movil.
+3. Evidencia de conversion de contacto equivalente o superior.
+4. Verificacion tecnica previa (robots, canonicos, sitemap, IndexNow).
+
+---
+
+## 7. Procedimiento de Rollback
+
+V1 permanecio completamente intacta. Rollback es inmediato:
+1. Eliminar index2.html, los seis *-v2.html y style-v2.css del servidor.
+2. V1 continuara operando sin interrupcion.
+
+---
+
+## 8. Registro de Auditoria Tecnica
+
+### Contexto de la auditoria
+
+- Fecha: 8 de octubre de 2026
+- Commit evaluado: 17d6bc0d9eb28c1359ad37d35242d37489385456
+- Rama: main
+- Working tree al inicio: limpio (sin cambios locales)
+- Archivos del sitio modificados durante la auditoria: NINGUNO
+
+### Suites estaticas - Cobertura real
+
+| Suite                  | Archivo                       | Cobertura                                              |
+|------------------------|-------------------------------|--------------------------------------------------------|
+| SHA-256 V1             | scratch/verify_v1_sha256.py   | Integridad de 9 archivos V1 (hash dual para index.html)|
+| Navegacion/aislamiento | scratch/verify_v2_qa.py       | 14 paginas, enlaces, mailto, recursos locales          |
+| SEO completo           | verify_seo_final.py           | 14 paginas, sitemap, robots.txt, og:image              |
+| Tracking               | verify_tracking.py            | GTM + Clarity en 14 paginas                            |
+
+ACLARACION: 4/4 PASS se refiere a cuatro suites Python estaticas. No representa la totalidad de
+pruebas posibles del sitio (no incluye accesibilidad WCAG, Core Web Vitals, comportamiento real).
+
+### Referencias SHA-256 de index.html (trazabilidad dual)
+
+| Referencia           | Hash                                                               | Estado                          |
+|----------------------|--------------------------------------------------------------------|---------------------------------|
+| Historica            | dead87da88fab4549e7697b9e7600c0f8fa64b18d83af065db5f1dee6bfa01be | Conservada en verify_v1_sha256.py|
+| Autorizada actual    | 729fce9acdc6ec3cc38e23fe86999d0a01109e184c868096387ddd0c4107106a | Verificada en disco             |
+| Cambio documentado   | Boton Escribeme -> mailto:contacto@osvaldovega.cl                  | Autorizado                      |
+| Diff byte a byte     | NO VERIFICADO                                                      | Historico no recuperable desde repo|
+
+Los 8 archivos restantes de V1 conservan sus hashes originales sin cambio alguno.
+
+### Resultados suites Python (exit codes)
+
+`
+verify_v1_sha256.py  -> PASS (exit 0)
+  PASS identicos a linea base:       8
+  PASS cambio autorizado:            1
+  FAIL discrepancias no resueltas:   0
+
+verify_v2_qa.py      -> PASS (exit 0)
+  Errores encontrados: 0 / 14 paginas
+
+verify_seo_final.py  -> PASS (exit 0)
+  Errores encontrados: 0 / 14 paginas
+
+verify_tracking.py   -> PASS (exit 0)
+  Errores encontrados: 0 / 14 paginas
+`
+
+### Resultados QA de navegador
+
+**test_all_v2_pages.mjs** - Browser QA V2
+
+`
+Paginas previstas:       7
+Resoluciones previstas:  5  (1440, 1024, 768, 390, 320 px)
+Combinaciones previstas: 35
+Ejecutadas:              35
+PASS:                    35
+FAIL:                    0
+INCOMPLETE:              0
+Resultado global:        PASS
+Exit code:               0
+`
+
+Detalle por pagina (todas las resoluciones PASS):
+- index2.html: 7/7 imgs, sin overflow (1440, 1024, 768, 390, 320 px)
+- pac-arenillas-negras-v2.html: 6/6 imgs, sin overflow (todas resoluciones)
+- medio-humano-desaladora-arica-v2.html: 3/3 imgs, sin overflow (todas resoluciones)
+- deslindes-rios-valparaiso-v2.html: 5/5 imgs, sin overflow (todas resoluciones)
+- pac-la-florida-v2.html: 8/8 imgs, sin overflow (todas resoluciones)
+- plan-maestro-san-felipe-v2.html: 4/4 imgs, sin overflow (todas resoluciones)
+- medio-humano-horcon-v2.html: 2/2 imgs, sin overflow (todas resoluciones)
+
+**test_responsive_index2.mjs** - Responsive QA index2.html
+
+```
+Resoluciones previstas:  5 (1440, 1024, 768, 390, 320 px)
+Ejecutadas:              5
+PASS:                    5
+FAIL:                    0
+INCOMPLETE:              0
+Resultado global:        PASS
+Exit code:               0
 ```
 
-> **Aviso de alcance:** Este documento describe una arquitectura técnica y editorial preparada en el repositorio local. Nada de lo aquí registrado se encuentra publicado en producción ni accesible a tráfico externo en esta fase.
+Detalle por resolucion:
+- 1440px: overflow=false, outOfBounds=0, grids responsivos conformes -> PASS
+- 1024px: overflow=false, outOfBounds=0, grids responsivos conformes -> PASS
+- 768px:  overflow=false, outOfBounds=0, grids responsivos conformes -> PASS
+- 390px:  overflow=false, outOfBounds=0, grids responsivos conformes -> PASS
+- 320px:  overflow=false, outOfBounds=0, grids responsivos conformes -> PASS
+
+
+### Validacion del mecanismo de deteccion de fallos
+
+El mecanismo de FAIL/exit-code-no-cero fue verificado estructuralmente en el codigo:
+- Los scripts corregidos cuentan failCount y incompleteCount por separado.
+- process.exit(0) se emite SOLO si passCount == EXPECTED_TOTAL y failCount == 0.
+- exit(1) en presencia de cualquier FAIL; exit(2) en presencia de INCOMPLETE.
+- Se elimino el process.exit(0) incondicional previo.
+
+Prueba controlada de fallo real (EVIDENCIA OBTENIDA Y DOCUMENTADA):
+1. **Python (`verify_v1_sha256.py`):**
+   - Inyección temporal de hash no coincidente en un archivo de prueba en memoria.
+   - Resultado: salida `RESULTADO GLOBAL: FAIL`, exit code `1`.
+2. **Navegador (`test_all_v2_pages.mjs`):**
+   - Sustitución temporal de URL por `proyectos/no-existe-v2.html` en ejecución aislada.
+   - Resultado: 5 fallos detectados (1 por resolución: título ausente, H1 ausente, body insuficiente), salida `Resultado global: FAIL`, exit code `1`.
+
+Ambas suites comprueban y garantizan detección real de anomalías con códigos de salida estrictamente distintos de cero.
+
+### Limitaciones de las comprobaciones
+
+1. Suites Python son estaticas: no ejecutan JavaScript ni evaluan comportamiento en navegador.
+2. QA de navegador corre sobre servidor local; no comprueba CDN externos ni latencia real.
+3. Fuentes externas (Google Fonts, Font Awesome) no se clasifican como fallo local.
+4. Diff byte a byte de index.html historico vs. autorizado no es verificable desde repo actual.
+5. No se realizo auditoria de accesibilidad WCAG ni de rendimiento Core Web Vitals.
+6. Estado de produccion (osvaldovega.cl) no fue verificado por HTTP en esta auditoria.
+
+### Incidencias pendientes
+
+Ninguna incidencia requiere modificacion de archivos del sitio web.
 
 ---
 
-## 1. Propósito de V1 y V2
+## 9. Proximos Pasos (Pendientes de Autorizacion)
 
-El sitio web profesional presenta la trayectoria y capacidades de Osvaldo Vega Oses en Medio Humano, Participación Ciudadana y análisis socio-territorial para proyectos de infraestructura y evaluación ambiental.
+1. Verificacion HTTP de produccion: confirmar estado real de osvaldovega.cl cuando sea requerido.
+2. Commit de auditoria: si se autoriza, registrar scripts corregidos y este documento en Git.
+3. Push remoto: enviar cambios a `origin/main` una vez confirmado por Osvaldo Vega.
+4. Inicio de comparacion editorial: cuando Osvaldo Vega lo indique.
 
-- **V1 (Referencia Original):** Es la versión oficial actual de producción. Mantiene una estética técnica y oscura, estructurada en torno a `index.html` y seis casos de proyectos desarrollados en profundidad. Representa la línea base de presentación y validación profesional.
-- **V2 (Experimento Editorial):** Es una variante alternativa desarrollada para explorar una narrativa editorial clara y humana, con mayor protagonismo de la identidad profesional, los territorios y la estructura de servicios. Organiza la portada en diez bloques funcionales (Hero profesional, Servicios, Mapa de experiencia, Tres casos destacados, Tres casos secundarios, Trabajo actual, Mi forma de trabajar, Trayectoria, Innovación aplicada y Contacto).
-
-**Principio de diseño:** Construir una infraestructura de experimentación editorial controlada, reversible, reproducible y verificable, donde **ningún cambio en V2 modifique visual, funcional o editorialmente a V1**.
-
----
-
-## 2. Archivos Pertenecientes a Cada Versión
-
-### Versión 1 (V1 — Referencia Original)
-- **Portada:** `index.html`
-- **Páginas de proyectos:**
-  - `proyectos/pac-arenillas-negras.html`
-  - `proyectos/medio-humano-desaladora-arica.html`
-  - `proyectos/deslindes-rios-valparaiso.html`
-  - `proyectos/pac-la-florida.html`
-  - `proyectos/plan-maestro-san-felipe.html`
-  - `proyectos/medio-humano-horcon.html`
-- **Estilos y lógica:** `style.css`, `script.js`
-
-### Versión 2 (V2 — Experimento Editorial)
-- **Portada:** `index2.html`
-- **Páginas de proyectos:**
-  - `proyectos/pac-arenillas-negras-v2.html`
-  - `proyectos/medio-humano-desaladora-arica-v2.html`
-  - `proyectos/deslindes-rios-valparaiso-v2.html`
-  - `proyectos/pac-la-florida-v2.html`
-  - `proyectos/plan-maestro-san-felipe-v2.html`
-  - `proyectos/medio-humano-horcon-v2.html`
-- **Estilos exclusivos V2:** `style-v2.css` (cargado junto a `style.css` únicamente en V2)
-
-### Recursos Compartidos (Sin Duplicación)
-- Fotografías y recursos gráficos: `Fotos_proyectos/`, `assets/`
-- Tipografías: Google Fonts (Open Sans) y Font Awesome CDN
-- Faviconos: `favicon.ico`, `favicon-16x16.png`, `favicon-32x32.png`
-- Analítica: Contenedores Google Tag Manager (`GTM-NN64BQC5`) y Microsoft Clarity (`ypzia0e866`)
-
----
-
-## 3. Relación entre Portada y Páginas de Proyectos (Aislamiento de Navegación)
-
-Los recorridos de navegación se encuentran 100% aislados e impermeables entre sí:
-
-```text
-[ Recorrido Oficial V1 ]
-index.html ───► proyectos/caso.html ───► index.html#seccion
-
-[ Recorrido Experimental V2 ]
-index2.html ───► proyectos/caso-v2.html ───► index2.html#seccion
-```
-
-### Reglas de Enlace Implementadas
-1. **Desde `index2.html`:** Todos los enlaces a proyectos apuntan exclusivamente a las variantes `-v2.html` (tanto en casos destacados, casos secundarios como en enlaces cruzados de servicios). Ningún enlace apunta a las páginas originales V1.
-2. **Desde las páginas `*-v2.html`:** Todos los enlaces de retorno (`logo`, barra de navegación, CTA inferior) apuntan exclusivamente a `../index2.html`, conservando intactos sus destinos por ancla (`#inicio`, `#proyectos`, `#que-hago`, `#metodologia`, `#sobre-mi`, `#innovacion`, `#contacto`).
-3. **Navegación interna de caso:** Las anclas locales (`#resumen`, `#territorio`, `#proceso`, etc.) y controles interactivos (acordeones, botones colapsar/expandir) operan autónomamente dentro de cada documento.
-
----
-
-## 4. Política de Modificaciones
-
-1. **Intangibilidad de V1:** Los 9 archivos constitutivos de V1 (`index.html`, los seis casos originales, `style.css` y `script.js`) tienen prohibición estricta de edición directa durante el desarrollo de experimentos. Su integridad se valida mediante comparación criptográfica SHA-256.
-2. **Desarrollo en V2:** Toda mejora de redacción, taxonomía, ordenación o estilo para el experimento debe realizarse en `index2.html`, los archivos `*-v2.html` o la hoja complementaria `style-v2.css`.
-3. **Sin conmutador público no autorizado:** No se instalará un selector flotante V1/V2 de cara al visitante general sin previo acuerdo metodológico.
-4. **Preservación de contenido sustantivo:** En esta etapa no se alteran roles declarados, períodos, metodologías, evidencias ni resultados técnicos de los proyectos. Las revisiones de contenido se abordan caso a caso con Osvaldo Vega.
-
----
-
-## 5. Tratamiento SEO: Dos Versiones Públicas, Una Referencia Oficial
-
-Para permitir la publicación simultánea sin generar canibalización, contenido duplicado o señales contradictorias en motores de búsqueda:
-
-| Parámetro | Versión V1 (Referencia) | Versión V2 (Experimental) |
-|---|---|---|
-| **Directiva Robots** | `index, follow` | `noindex, follow` |
-| **Canonical en Portada** | `https://osvaldovega.cl/` | `https://osvaldovega.cl/` |
-| **Canonical en Proyectos** | Auto-referencial a V1 (`.../caso.html`) | Apunta a su equivalente original V1 (`.../caso.html`) |
-| **Open Graph `og:url`** | `https://osvaldovega.cl/` o `.../caso.html` | URL propia V2 (`.../index2.html` o `.../caso-v2.html`) |
-| **Inclusión en Sitemap** | Sí (las 7 URLs oficiales en `sitemap.xml`) | **No** (excluidas para proteger la señal oficial) |
-| **Notificación IndexNow** | Sí (reservado a V1) | **No** (prohibido someter URLs experimentales) |
-| **Robots.txt** | Permite rastreo general | No se bloquea por ruta para permitir lectura del `noindex` |
-
----
-
-## 6. Estado de Publicación
-
-- **Archivos locales:** Completamente preparados, verificados en navegación y validados en resolución responsive (1440px, 1024px, 768px, 390px, 320px).
-- **Entorno de producción:** Sin despliegue ejecutado. El sitio publicado permanece en su estado anterior.
-- **Autorización de publicación:** Pendiente de revisión técnica y editorial por parte de Osvaldo Vega.
-
----
-
-## 7. Procedimiento de Comparación Futura
-
-Cuando se autorice la publicación paralela de V2, la comparación editorial y de rendimiento se estructurará de forma controlada:
-
-1. **Fase Inicial (Compartición Asistida / Enlaces Directos):**
-   - V1 recibe el tráfico orgánico y directo general.
-   - V2 se comparte selectivamente con colegas, contrapartes o consultoras de confianza mediante enlaces directos a `https://osvaldovega.cl/index2.html`.
-2. **Diferenciación Analítica Propuesta:**
-   - Implementar un parámetro de dimensión personalizada en la capa de datos (`dataLayer`):
-     ```javascript
-     window.dataLayer = window.dataLayer || [];
-     window.dataLayer.push({
-       'site_version': window.location.pathname.includes('2') || window.location.pathname.includes('-v2') ? 'v2' : 'v1'
-     });
-     ```
-   - Segmentar en Clarity y Google Analytics eventos equivalentes:
-     - Tasa de clic a proyectos desde el hero y la sección principal.
-     - Exploración de casos secundarios y lectura de trabajo actual.
-     - Interacción con enlaces de servicios.
-     - Clics en correo de contacto y perfil de LinkedIn.
-     - Tasa de rebote y tiempo de permanencia en móvil vs. escritorio.
-3. **Fase Posterior (Eventual Prueba A/B):**
-   - Si se decide someter ambas variantes a distribución de tráfico aleatorio, se requerirá configurar un middleware en el borde (Cloudflare Worker o rewrite de servidor) antes de activar cualquier redirección.
-
----
-
-## 8. Criterios para una Eventual Promoción de V2 a Producción Oficial
-
-La variante experimental V2 solo sustituirá a V1 (`index2.html` pasando a ser `index.html`) si se cumplen copulativamente los siguientes criterios:
-
-1. **Validación Editorial:** Aprobación explícita de Osvaldo Vega sobre la narrativa de servicios, la presentación personal y la jerarquía de proyectos.
-2. **Comportamiento Móvil:** Confirmación de que el visitante en smartphone encuentra de forma inmediata los casos de interés sin fatiga de scroll.
-3. **Conversión de Contacto:** Evidencia de que los accesos a correo y LinkedIn en V2 se mantienen o superan los índices de V1.
-4. **Verificación Técnica Previa al Reemplazo:**
-   - Promoción segura de `index2.html` a `index.html`.
-   - Cambio de directivas robots de `noindex` a `index, follow`.
-   - Actualización de canónicos para consolidar la nueva versión.
-   - Actualización del sitemap oficial y posterior notificación IndexNow.
-
----
-
-## 9. Procedimiento de Rollback (Cómo Volver a V1 sin Perder V2)
-
-Dado que V1 ha permanecido completamente intacta durante todo el proceso, el rollback es inmediato y sin riesgo:
-
-1. Si V2 estuviese publicada en el servidor remoto y se decide retirar de inmediato el experimento:
-   - Eliminar o despublicar `index2.html`, los seis archivos `proyectos/*-v2.html` y `style-v2.css` del servidor.
-   - V1 continuará operando sin interrupción, pues ninguno de sus enlaces o archivos depende de V2.
-2. Los archivos V2 pueden archivarse o mantenerse localmente en el repositorio para futuras iteraciones sin generar ningún residuo en producción.
