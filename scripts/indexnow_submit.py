@@ -72,7 +72,7 @@ def submit(urls: list[str], dry_run: bool = False) -> int:
             print(f"Interpretación: {interpret_status(status)}")
             if message:
                 print(f"Respuesta: {message}")
-            return 0 if status == 200 else 1
+            return 0 if status in (200, 202) else 1
     except Exception as exc:  # pragma: no cover - depends on network behavior
         status = getattr(exc, "code", None)
         if status is None:
@@ -88,17 +88,19 @@ def submit(urls: list[str], dry_run: bool = False) -> int:
 
 def interpret_status(status):
     status_map = {
-        200: "200 OK",
-        400: "400 bad request",
-        403: "403 key inválida/no encontrada",
-        422: "422 URL/host inválido",
-        429: "429 demasiadas solicitudes",
+        200: "200 OK — URL enviada con éxito",
+        202: "202 Accepted — Clave validada y URLs aceptadas para indexación",
+        400: "400 Bad Request — Formato inválido",
+        403: "403 Forbidden — Clave inválida o no coincide con el archivo",
+        422: "422 Unprocessable Entity — URL o host no coincide",
+        429: "429 Too Many Requests — Demasiadas solicitudes",
     }
     if status in status_map:
         return status_map[status]
     if status == "ERROR":
         return "error de red o de conexión"
     return f"estado HTTP {status}"
+
 
 
 def parse_args() -> argparse.Namespace:
