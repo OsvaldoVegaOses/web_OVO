@@ -1843,3 +1843,10 @@ footer.footer p[style*="color: var(--text-secondary)"] { color: #94A3B8 !importa
     grid-template-columns: minmax(0, 1fr) !important;
   }
 }
+
+/* Recorridos de servicios y contacto OVO v1.1 */
+.service-cta { display: inline-flex; align-self: flex-start; margin: 1rem 0 .75rem; }
+.contact-prompt { margin: 2rem 0 1rem; font-weight: 600; }
+.contact-options { display: flex; justify-content: center; flex-wrap: wrap; gap: .75rem; }
+.contact-email-visible { margin: 1.25rem 0; }
+.contact-email-visible a { color: inherit; text-underline-offset: .2em; }

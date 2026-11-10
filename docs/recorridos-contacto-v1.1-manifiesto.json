@@ -1,0 +1,75 @@
+{
+  "estado": "publicado_verificado",
+  "base": "034c6f957949642a69d15e88c08afd2f6eca4514",
+  "archivos": [
+    {
+      "path": "index.html",
+      "sha256": "831f0556e605d4350a0abcd264b1774393a5660c50f264ac2fd4769eaf1b3d05"
+    },
+    {
+      "path": "index2.html",
+      "sha256": "6aaa8d946fe8c9bc270413598bef98d7fd7d3a294d0461c2c4368c4f7fd243a3"
+    },
+    {
+      "path": "style.css",
+      "sha256": "c376d07c11aa79a7a5dd2542fe047ee40c7190aa00ce162bff94ead14f5391a2"
+    },
+    {
+      "path": "openai-conversions.js",
+      "sha256": "83f9db34d0534e9c26c8ceb54f3f95ce4b42d7d5cc36050f4d2e44a53230d5ec"
+    },
+    {
+      "path": "proyectos/deslindes-rios-valparaiso-v2.html",
+      "sha256": "28953fdd50f472f9961096e9b81509c37e1fca5b2112bece75cf5badb76e4515"
+    },
+    {
+      "path": "proyectos/deslindes-rios-valparaiso.html",
+      "sha256": "70a7b41b0ca97f10788c7e88cfb8d181b9e6c1c37637a1f47cf7d7bc790cbb4e"
+    },
+    {
+      "path": "proyectos/medio-humano-desaladora-arica-v2.html",
+      "sha256": "6983319a434495c4bdcbdd3c9c2fedfc3a47049d0db9ea055938d7e2290a9387"
+    },
+    {
+      "path": "proyectos/medio-humano-desaladora-arica.html",
+      "sha256": "9f7c64d9106f4ad8bc2eb3134cc6c79263e1650686db6c6ee661134fd89150b5"
+    },
+    {
+      "path": "proyectos/medio-humano-horcon-v2.html",
+      "sha256": "d825f696cb9bc95373ef3dd10235070fece10f923af3967b710f8996acf4481e"
+    },
+    {
+      "path": "proyectos/medio-humano-horcon.html",
+      "sha256": "0daf68a206693ac0949a70f4fdc180e261f6256114914b19cfc62564a3bef6bb"
+    },
+    {
+      "path": "proyectos/pac-arenillas-negras-v2.html",
+      "sha256": "297f612f9cee0bd90f848c111e81a710c46ad3c347bcd9d649e209a2345d5aa9"
+    },
+    {
+      "path": "proyectos/pac-arenillas-negras.html",
+      "sha256": "172db2cc7a0259a71632a7a04fd7b9838c60cc546d0933b359b789830c4d6f9d"
+    },
+    {
+      "path": "proyectos/pac-la-florida-v2.html",
+      "sha256": "e49e84ff291798c462d9cb20935ba2f73251a5d0ded71005d0404ec129febacd"
+    },
+    {
+      "path": "proyectos/pac-la-florida.html",
+      "sha256": "c306c7f1ef86e8885b2ea722a81fc20f759e8fe8665a3b403f86d6c3789e86de"
+    },
+    {
+      "path": "proyectos/plan-maestro-san-felipe-v2.html",
+      "sha256": "2eb991114c5a1510279830edd0441a6124bbe3d416357f7371a81eed768007f7"
+    },
+    {
+      "path": "proyectos/plan-maestro-san-felipe.html",
+      "sha256": "418374918c93d85022ce167c75039184c3e97ebde55393f0587c24c05d190d3a"
+    },
+    {
+      "path": "contact-tracking.js",
+      "sha256": "1def11c5d3862608bff79449aa9d0719bbfcd0e7cfba40855a412286bd8ba51f"
+    }
+  ],
+  "operacion": "20261110T175625Z-0f29ca77"
+}

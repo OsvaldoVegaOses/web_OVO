@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <script src="contact-tracking.js" defer></script>
     <script src="openai-conversions.js" defer></script>
 
     <!-- Google Tag Manager -->
@@ -1148,8 +1149,8 @@
                     <p class="hero-description">Diseño y ejecuto Líneas de Base de Medio Humano y procesos de Participación Ciudadana, integrando caracterización territorial, análisis de actores, entrevistas, reuniones comunitarias, triangulación cualitativa y sistematización de evidencia para estudios de ingeniería y evaluación ambiental.</p>
                     <p class="hero-audience">Consultoras · Firmas de ingeniería · Organismos públicos</p>
                     <div class="hero-buttons">
-                        <a href="#que-hago" class="btn btn-primary" id="hero-cta-casos">Qué hago</a>
-                        <a href="#proyectos" class="btn btn-outline" id="hero-cta-contacto">Ver proyectos</a>
+                        <a href="#que-hago" class="btn btn-primary" id="hero-cta-servicios" data-ovo-source="hero" data-ovo-action="ver_servicios">Qué hago</a>
+                        <a href="#proyectos" class="btn btn-outline" id="hero-cta-casos" data-ovo-source="hero" data-ovo-action="ver_proyectos">Ver proyectos</a>
                     </div>
                 </div>
                 <div class="hero-photo-wrap">
@@ -1179,6 +1180,7 @@
                         </div>
                         <h3>Medio Humano y Evaluación Socioambiental</h3>
                         <p>Líneas de Base de Medio Humano para evaluación ambiental: fuentes censales y documentales, entrevistas, observación territorial, análisis de usos y sistemas de vida, y triangulación de evidencia.</p>
+                        <a href="mailto:contacto@osvaldovega.cl?subject=Consulta%20profesional%20-%20Medio%20Humano" class="btn btn-primary service-cta" data-contact-service="medio_humano" data-contact-source="servicios">Consultar por Medio Humano</a>
                         <a class="service-related-link" href="proyectos/medio-humano-desaladora-arica-v2.html" aria-label="Ver proyecto relacionado: Desaladora Arica">Ver proyecto relacionado&nbsp; Desaladora Arica <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                     </div>
 
@@ -1188,6 +1190,7 @@
                         </div>
                         <h3>Participación Ciudadana y Gestión Territorial</h3>
                         <p>Diseño, implementación y seguimiento de procesos PAC para infraestructura: identificación y caracterización de actores, estrategias territoriales, entrevistas, reuniones comunitarias, registro de inquietudes y seguimiento de controversias y riesgos socio-territoriales.</p>
+                        <a href="mailto:contacto@osvaldovega.cl?subject=Consulta%20profesional%20-%20Participaci%C3%B3n%20Ciudadana" class="btn btn-primary service-cta" data-contact-service="pac" data-contact-source="servicios">Consultar apoyo PAC</a>
                         <a class="service-related-link" href="proyectos/pac-arenillas-negras-v2.html" aria-label="Ver proyecto relacionado: Arenillas Negras">Ver proyecto relacionado&nbsp; Arenillas Negras <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                     </div>
 
@@ -1197,6 +1200,7 @@
                         </div>
                         <h3>Investigación y Evidencia Cualitativa</h3>
                         <p>Diseño metodológico, construcción de corpus, análisis cualitativo, codificación, triangulación de fuentes y matrices de evidencia. Transformo información cualitativa y territorial compleja en evidencia trazable y verificable que dialoga con requerimientos técnicos y ambientales.</p>
+                        <a href="mailto:contacto@osvaldovega.cl?subject=Consulta%20profesional%20-%20Investigaci%C3%B3n%20social" class="btn btn-primary service-cta" data-contact-service="investigacion" data-contact-source="servicios">Consultar apoyo en investigación social</a>
                         <a class="service-related-link" href="proyectos/plan-maestro-san-felipe-v2.html" aria-label="Ver proyecto relacionado: San Felipe">Ver proyecto relacionado&nbsp; San Felipe <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                     </div>
 
@@ -1531,8 +1535,15 @@
             <p class="footer-audience">Trabajo con empresas consultoras, firmas de ingeniería, organismos públicos y equipos interdisciplinarios que requieren comprender la dimensión social y territorial de proyectos complejos.</p>
             <p class="footer-cta-text">¿Necesitas apoyo en Medio Humano, Participación Ciudadana o análisis socio-territorial?<br>Conversemos sobre las necesidades del proyecto y el tipo de evidencia necesaria para abordarlas.</p>
 
+            <p class="contact-prompt">¿En qué área necesitas colaboración?</p>
+            <div class="contact-options">
+                <a class="btn btn-outline contact-option" href="mailto:contacto@osvaldovega.cl?subject=Consulta%20profesional%20-%20Participaci%C3%B3n%20Ciudadana" data-contact-service="pac" data-contact-source="footer">Participación Ciudadana</a>
+                <a class="btn btn-outline contact-option" href="mailto:contacto@osvaldovega.cl?subject=Consulta%20profesional%20-%20Medio%20Humano" data-contact-service="medio_humano" data-contact-source="footer">Medio Humano</a>
+                <a class="btn btn-outline contact-option" href="mailto:contacto@osvaldovega.cl?subject=Consulta%20profesional%20-%20Investigaci%C3%B3n%20social%20u%20otra%20colaboraci%C3%B3n" data-contact-service="investigacion" data-contact-source="footer">Investigación social u otra colaboración</a>
+            </div>
+            <p class="contact-email-visible">Correo: <a href="mailto:contacto@osvaldovega.cl" data-contact-service="general" data-contact-source="footer">contacto@osvaldovega.cl</a></p>
             <div class="footer-buttons">
-                <a href="mailto:contacto@osvaldovega.cl" class="btn btn-primary" id="footer-email" aria-label="Enviar correo electrónico a Osvaldo Vega">
+                <a href="mailto:contacto@osvaldovega.cl" class="btn btn-primary" id="footer-email" data-contact-service="general" data-contact-source="footer" aria-label="Enviar correo electrónico a Osvaldo Vega">
                     <i class="fa-solid fa-envelope"></i> Escríbeme
                 </a>
                 <a href="https://www.linkedin.com/in/osvaldovegaoses" target="_blank" rel="noopener noreferrer" class="btn btn-outline" id="footer-linkedin" aria-label="Ver perfil de LinkedIn de Osvaldo Vega (se abre en una nueva pestaña)">

@@ -37,7 +37,7 @@
         if (!link) return;
 
         let name;
-        if (link.id === 'footer-email') name = 'contact_email_clicked';
+        if ((link.id === 'footer-email' || (link.dataset && link.dataset.contactSource)) && /^mailto:contacto@osvaldovega\.cl(?:\?|$)/i.test(link.getAttribute('href') || '')) name = 'contact_email_clicked';
         if (link.id === 'footer-linkedin') name = 'contact_linkedin_clicked';
         if (!name) return;
 
@@ -45,5 +45,6 @@
             custom_event_name: name,
             opt_out: true
         });
+
     });
 })(window, document);

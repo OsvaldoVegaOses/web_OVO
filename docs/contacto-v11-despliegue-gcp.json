@@ -1,0 +1,92 @@
+{
+  "operation": "20261110T175625Z-0f29ca77",
+  "backup": "/var/backups/ovo-contacto-v11/20261110T175625Z-0f29ca77",
+  "status": "published",
+  "files": [
+    {
+      "path": "index.html",
+      "before_sha256": "fd5da89cdef2b9ae0ce5daa1d0a413445ca5ca64f966c3355739a88451f117b1",
+      "after_sha256": "831f0556e605d4350a0abcd264b1774393a5660c50f264ac2fd4769eaf1b3d05"
+    },
+    {
+      "path": "index2.html",
+      "before_sha256": "2a6670e70fa81d7f35f86a76f2cb28480d6f0cf8daf7f8d834df3b3cc9d58a84",
+      "after_sha256": "6aaa8d946fe8c9bc270413598bef98d7fd7d3a294d0461c2c4368c4f7fd243a3"
+    },
+    {
+      "path": "style.css",
+      "before_sha256": "4534acf4bb30b9e7da5b375177c8191f38b3022179f278719a80f226a22ff387",
+      "after_sha256": "c376d07c11aa79a7a5dd2542fe047ee40c7190aa00ce162bff94ead14f5391a2"
+    },
+    {
+      "path": "openai-conversions.js",
+      "before_sha256": "3b7c9969ba9c75f23381ae830bcca7b373b41660ee0eee4d82a287673ca6757d",
+      "after_sha256": "83f9db34d0534e9c26c8ceb54f3f95ce4b42d7d5cc36050f4d2e44a53230d5ec"
+    },
+    {
+      "path": "proyectos/deslindes-rios-valparaiso-v2.html",
+      "before_sha256": "c224ca1ad0b0194d51ef07add016f0bc040544319caf14a53e7f95766baa1d6a",
+      "after_sha256": "28953fdd50f472f9961096e9b81509c37e1fca5b2112bece75cf5badb76e4515"
+    },
+    {
+      "path": "proyectos/deslindes-rios-valparaiso.html",
+      "before_sha256": "89824932d021a6bd0dfabe5ba1c3815e0ff3b21eb64c541bdeb0da8ee1b5b983",
+      "after_sha256": "70a7b41b0ca97f10788c7e88cfb8d181b9e6c1c37637a1f47cf7d7bc790cbb4e"
+    },
+    {
+      "path": "proyectos/medio-humano-desaladora-arica-v2.html",
+      "before_sha256": "d27671df9c2f6eda8b4f8f103e9df98ae0290304f12d915beac6607d46a6cdf0",
+      "after_sha256": "6983319a434495c4bdcbdd3c9c2fedfc3a47049d0db9ea055938d7e2290a9387"
+    },
+    {
+      "path": "proyectos/medio-humano-desaladora-arica.html",
+      "before_sha256": "e11a6438605df4dcd0f15e1e71c5ee8219b9b8760f32858795caae4249e60c12",
+      "after_sha256": "9f7c64d9106f4ad8bc2eb3134cc6c79263e1650686db6c6ee661134fd89150b5"
+    },
+    {
+      "path": "proyectos/medio-humano-horcon-v2.html",
+      "before_sha256": "77027681deaa9e571ed6875b8202d6a80d3ffef8f5e077a9b577453d6931f0bf",
+      "after_sha256": "d825f696cb9bc95373ef3dd10235070fece10f923af3967b710f8996acf4481e"
+    },
+    {
+      "path": "proyectos/medio-humano-horcon.html",
+      "before_sha256": "f3483c7bba10847858cf28db5c4254c95caf48fe5353929e30fef1f23b15e17c",
+      "after_sha256": "0daf68a206693ac0949a70f4fdc180e261f6256114914b19cfc62564a3bef6bb"
+    },
+    {
+      "path": "proyectos/pac-arenillas-negras-v2.html",
+      "before_sha256": "03a6d91f68565383d72562c37addca9a5c7c133d76aff8361efba719868a1f7b",
+      "after_sha256": "297f612f9cee0bd90f848c111e81a710c46ad3c347bcd9d649e209a2345d5aa9"
+    },
+    {
+      "path": "proyectos/pac-arenillas-negras.html",
+      "before_sha256": "72da0ecc796f14cc254aa8483fc3d88e0a10afd6b2baf5dbffcd52675ef3d5e9",
+      "after_sha256": "172db2cc7a0259a71632a7a04fd7b9838c60cc546d0933b359b789830c4d6f9d"
+    },
+    {
+      "path": "proyectos/pac-la-florida-v2.html",
+      "before_sha256": "0c3cc12904dc80309194dcbe12268e77d1d943d9f7ac55b8ecb03124dc8033ba",
+      "after_sha256": "e49e84ff291798c462d9cb20935ba2f73251a5d0ded71005d0404ec129febacd"
+    },
+    {
+      "path": "proyectos/pac-la-florida.html",
+      "before_sha256": "5e70b498672222d4c09af1a71dc53978d1c618d53950d231fe640a9bc0dd5b53",
+      "after_sha256": "c306c7f1ef86e8885b2ea722a81fc20f759e8fe8665a3b403f86d6c3789e86de"
+    },
+    {
+      "path": "proyectos/plan-maestro-san-felipe-v2.html",
+      "before_sha256": "78311f456e7b03b041afb247ef56b6e9cc8bae6b45499882b6364e5fab73ab05",
+      "after_sha256": "2eb991114c5a1510279830edd0441a6124bbe3d416357f7371a81eed768007f7"
+    },
+    {
+      "path": "proyectos/plan-maestro-san-felipe.html",
+      "before_sha256": "a1e3350959c736ed7cfd13d4555efcb161f7f2adb29921498de748e1ae34a427",
+      "after_sha256": "418374918c93d85022ce167c75039184c3e97ebde55393f0587c24c05d190d3a"
+    },
+    {
+      "path": "contact-tracking.js",
+      "before_sha256": null,
+      "after_sha256": "1def11c5d3862608bff79449aa9d0719bbfcd0e7cfba40855a412286bd8ba51f"
+    }
+  ]
+}
