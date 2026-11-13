@@ -17,3 +17,7 @@ env/
 
 # Capturas de pantalla temporales de QA local
 scratch/final-qa/
+
+# Exportaciones privadas de Clarity
+clarity-export.json
+clarity-*h.json

@@ -4,6 +4,30 @@ const navToggle = document.getElementById('nav-toggle');
 const navLinks = document.getElementById('nav-links');
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+// El enlace original conserva su comportamiento y su medición; el aviso no
+// dispara eventos ni incluye los atributos utilizados por los rastreadores.
+document.querySelectorAll('a[href]').forEach(link => {
+    if (!/^mailto:contacto@osvaldovega\.cl(?:\?|$)/i.test(link.getAttribute('href'))) return;
+    const notice = document.createElement('span');
+    notice.className = 'contact-notice';
+    notice.setAttribute('role', 'status');
+    notice.setAttribute('aria-live', 'polite');
+    if (navLinks && navLinks.contains(link) && header) {
+        notice.classList.add('contact-notice-header');
+        header.appendChild(notice);
+    } else {
+        link.insertAdjacentElement('afterend', notice);
+    }
+    link.addEventListener('click', event => {
+        if (event.defaultPrevented || event.button !== 0) return;
+        notice.replaceChildren(document.createTextNode('Se abrirá tu aplicación de correo. También puedes escribir a '));
+        const email = document.createElement('a');
+        email.href = 'mailto:contacto@osvaldovega.cl';
+        email.textContent = 'contacto@osvaldovega.cl';
+        notice.append(email, document.createTextNode('.'));
+    });
+});
+
 window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {
         header.classList.add('scrolled');

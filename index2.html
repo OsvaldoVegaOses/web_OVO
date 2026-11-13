@@ -32,12 +32,16 @@
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="preload" href="Fotos_proyectos/webp/perfil/osvaldo-vega-hero-600.webp" as="image" type="image/webp">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style-v2.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
         <style>
         /* ============================================================
@@ -629,7 +633,8 @@
             padding: 1.6rem 1.4rem;
         }
 
-        .index-editorial .about-milestone-card h4 {
+        .index-editorial .about-milestone-card h4,
+        .index-editorial .about-milestone-card .milestone-title {
             color: var(--text-primary);
             font-size: 1.1rem;
             font-weight: 600;
@@ -1154,7 +1159,15 @@
                     </div>
                 </div>
                 <div class="hero-photo-wrap">
-                    <img src="Fotos_proyectos/webp/perfil/osvaldo-vega.webp" alt="Retrato profesional de Osvaldo Vega Oses." class="hero-photo" fetchpriority="high" decoding="async">
+                    <img src="Fotos_proyectos/webp/perfil/osvaldo-vega-hero-600.webp"
+                         srcset="Fotos_proyectos/webp/perfil/osvaldo-vega-hero-360.webp 360w,
+                                 Fotos_proyectos/webp/perfil/osvaldo-vega-hero-600.webp 600w"
+                         sizes="(max-width: 768px) 280px, 360px"
+                         alt="Retrato profesional de Osvaldo Vega Oses."
+                         class="hero-photo"
+                         fetchpriority="high"
+                         decoding="async"
+                         width="600" height="749">
                 </div>
             </div>
         </section>
@@ -1247,9 +1260,13 @@
                 <div class="featured-projects">
                     <article class="featured-card" id="card-arenillas">
                         <div class="featured-card-media">
-                            <img src="Fotos_proyectos/webp/arenillas-negras/pac-comunitaria-ampliada.webp"
+                            <img src="Fotos_proyectos/webp/arenillas-negras/pac-comunitaria-ampliada-card-400.webp"
+                                 srcset="Fotos_proyectos/webp/arenillas-negras/pac-comunitaria-ampliada-card-400.webp 400w,
+                                         Fotos_proyectos/webp/arenillas-negras/pac-comunitaria-ampliada.webp 790w"
+                                 sizes="(max-width: 768px) 100vw, 380px"
                                  alt="Reunión comunitaria ampliada de Participación Ciudadana en Playa Arenillas Negras, Arica."
-                                 class="featured-card-img">
+                                 class="featured-card-img"
+                                 loading="lazy" decoding="async" width="400" height="299">
                         </div>
                         <div class="featured-card-content">
                             <span class="project-area">PARTICIPACIÓN CIUDADANA</span>
@@ -1268,9 +1285,13 @@
 
                     <article class="featured-card" id="card-desaladora">
                         <div class="featured-card-media">
-                            <img src="Fotos_proyectos/webp/desaladora-arica/sector-playa.webp"
+                            <img src="Fotos_proyectos/webp/desaladora-arica/sector-playa-card-400.webp"
+                                 srcset="Fotos_proyectos/webp/desaladora-arica/sector-playa-card-400.webp 400w,
+                                         Fotos_proyectos/webp/desaladora-arica/sector-playa-card-800.webp 800w"
+                                 sizes="(max-width: 768px) 100vw, 380px"
                                  alt="Sector de playa en el área de estudio del proyecto de desalinización de Arica."
-                                 class="featured-card-img">
+                                 class="featured-card-img"
+                                 loading="lazy" decoding="async" width="400" height="300">
                         </div>
                         <div class="featured-card-content">
                             <span class="project-area">MEDIO HUMANO</span>
@@ -1289,9 +1310,13 @@
 
                     <article class="featured-card" id="card-deslindes">
                         <div class="featured-card-media">
-                            <img src="Fotos_proyectos/webp/deslindes/recorrido-territorial-20221018-095828.webp"
+                            <img src="Fotos_proyectos/webp/deslindes/recorrido-territorial-card-400.webp"
+                                 srcset="Fotos_proyectos/webp/deslindes/recorrido-territorial-card-400.webp 400w,
+                                         Fotos_proyectos/webp/deslindes/recorrido-territorial-card-800.webp 800w"
+                                 sizes="(max-width: 768px) 100vw, 380px"
                                  alt="Recorrido territorial en cauce del estudio de fijación de deslindes de ríos, Región de Valparaíso."
-                                 class="featured-card-img">
+                                 class="featured-card-img"
+                                 loading="lazy" decoding="async" width="400" height="300">
                         </div>
                         <div class="featured-card-content">
                             <span class="project-area">GESTIÓN TERRITORIAL</span>
@@ -1312,7 +1337,13 @@
                 <div class="published-projects">
                     <article class="published-project-row" id="row-la-florida">
                         <div class="published-project-media">
-                            <img src="Fotos_proyectos/webp/la-florida/visita-reconocimiento-10.webp" alt="Reconocimiento territorial en corredor urbano del área de estudio de aguas lluvias, La Florida." class="published-project-img">
+                            <img src="Fotos_proyectos/webp/la-florida/visita-reconocimiento-10-card-400.webp"
+                                 srcset="Fotos_proyectos/webp/la-florida/visita-reconocimiento-10-card-400.webp 400w,
+                                         Fotos_proyectos/webp/la-florida/visita-reconocimiento-10.webp 816w"
+                                 sizes="(max-width: 768px) 100vw, 350px"
+                                 alt="Reconocimiento territorial en corredor urbano del área de estudio de aguas lluvias, La Florida."
+                                 class="published-project-img"
+                                 loading="lazy" decoding="async" width="400" height="180">
                         </div>
                         <div class="published-project-body">
                             <span class="project-area">PARTICIPACIÓN CIUDADANA</span>
@@ -1330,7 +1361,13 @@
 
                     <article class="published-project-row" id="row-san-felipe">
                         <div class="published-project-media">
-                            <img src="Fotos_proyectos/webp/san-felipe/presentacion-avances-1.webp" alt="Presentación de avances en reunión PAC del Plan Maestro de Aguas Lluvias de San Felipe." class="published-project-img">
+                            <img src="Fotos_proyectos/webp/san-felipe/presentacion-avances-1-card-400.webp"
+                                 srcset="Fotos_proyectos/webp/san-felipe/presentacion-avances-1-card-400.webp 400w,
+                                         Fotos_proyectos/webp/san-felipe/presentacion-avances-1.webp 851w"
+                                 sizes="(max-width: 768px) 100vw, 350px"
+                                 alt="Presentación de avances en reunión PAC del Plan Maestro de Aguas Lluvias de San Felipe."
+                                 class="published-project-img"
+                                 loading="lazy" decoding="async" width="400" height="300">
                         </div>
                         <div class="published-project-body">
                             <span class="project-area">INVESTIGACIÓN / EVIDENCIA</span>
@@ -1348,7 +1385,13 @@
 
                     <article class="published-project-row" id="row-horcon">
                         <div class="published-project-media">
-                            <img src="Fotos_proyectos/webp/horcon/calle-interior-horcon.webp" alt="Calle interior del borde costero de Horcón, Puchuncaví, durante el reconocimiento territorial." class="published-project-img">
+                            <img src="Fotos_proyectos/webp/horcon/calle-interior-horcon-card-400.webp"
+                                 srcset="Fotos_proyectos/webp/horcon/calle-interior-horcon-card-400.webp 400w,
+                                         Fotos_proyectos/webp/horcon/calle-interior-horcon.webp 575w"
+                                 sizes="(max-width: 768px) 100vw, 350px"
+                                 alt="Calle interior del borde costero de Horcón, Puchuncaví, durante el reconocimiento territorial."
+                                 class="published-project-img"
+                                 loading="lazy" decoding="async" width="400" height="266">
                         </div>
                         <div class="published-project-body">
                             <span class="project-area">MEDIO HUMANO</span>
@@ -1469,22 +1512,22 @@
                 <div class="about-milestones">
                     <div class="about-milestone-card" id="hito-publico">
                         <span class="milestone-icon"><i class="fa-solid fa-landmark"></i></span>
-                        <h4>Sector público</h4>
+                        <h3 class="milestone-title">Sector público</h3>
                         <p>Experiencia en instituciones estatales, planificación y gestión territorial con requerimientos técnicos formales.</p>
                     </div>
                     <div class="about-milestone-card" id="hito-civil">
                         <span class="milestone-icon"><i class="fa-solid fa-people-group"></i></span>
-                        <h4>Sociedad civil</h4>
+                        <h3 class="milestone-title">Sociedad civil</h3>
                         <p>Conducción de ONG Tren Ciudadano. Proyectos formativos y redes de colaboración regional e internacional.</p>
                     </div>
                     <div class="about-milestone-card" id="hito-consultoria">
                         <span class="milestone-icon"><i class="fa-solid fa-briefcase"></i></span>
-                        <h4>Consultoría</h4>
+                        <h3 class="milestone-title">Consultoría</h3>
                         <p>Proyectos de medio humano, participación ciudadana e infraestructura en distintas regiones del país.</p>
                     </div>
                     <div class="about-milestone-card" id="hito-investigacion">
                         <span class="milestone-icon"><i class="fa-solid fa-diagram-project"></i></span>
-                        <h4>Investigación aplicada</h4>
+                        <h3 class="milestone-title">Investigación aplicada</h3>
                         <p>Diseño metodológico, análisis cualitativo y producción de evidencia técnica trazable y verificable.</p>
                     </div>
                 </div>

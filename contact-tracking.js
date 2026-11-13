@@ -6,6 +6,11 @@
     window.__ovoContactTrackingLoaded = true;
     const allowed = (value, choices, fallback) => choices.includes(value) ? value : fallback;
     const version = /(?:index2\.html|-v2\.html)$/.test(window.location.pathname) ? 'v2' : 'v1';
+    // Etiqueta de sesión: si una persona visita ambas versiones, Clarity puede
+    // asociar ambos valores a la misma sesión.
+    if (typeof window.clarity === 'function') {
+        try { window.clarity('set', 'ovo_version', version); } catch (_) { /* medición opcional */ }
+    }
     document.addEventListener('click', function (event) {
         if (!event.isTrusted || event.button !== 0 || event.defaultPrevented) return;
         const target = event.target && (event.target.closest ? event.target : event.target.parentElement);
@@ -16,7 +21,7 @@
         if (data.contactSource && /^mailto:contacto@osvaldovega\.cl(?:\?|$)/i.test(link.getAttribute('href') || '')) {
             context = { event: 'ovo_contact_context',
                 contact_service: allowed(data.contactService, ['pac', 'medio_humano', 'investigacion', 'general'], 'general'),
-                contact_source: allowed(data.contactSource, ['hero', 'servicios', 'caso', 'footer'], 'footer'),
+                contact_source: allowed(data.contactSource, ['header', 'hero', 'servicios', 'caso', 'footer'], 'footer'),
                 contact_version: version,
                 contact_case: allowed(data.contactCase, ['pac-arenillas-negras', 'pac-la-florida', 'deslindes-rios-valparaiso', 'medio-humano-desaladora-arica', 'medio-humano-horcon', 'plan-maestro-san-felipe'], '') };
         } else if (data.ovoAction && data.ovoSource === 'hero') {
@@ -26,6 +31,9 @@
         if (context) {
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push(context);
+            if (context.event === 'ovo_contact_context' && typeof window.clarity === 'function') {
+                try { window.clarity('event', 'ovo_correo_' + context.contact_service); } catch (_) { /* medición opcional */ }
+            }
         }
     }, true);
 })(window, document);
